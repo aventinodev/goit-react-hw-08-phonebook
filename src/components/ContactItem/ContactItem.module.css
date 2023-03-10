@@ -1,0 +1,33 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 4vw;
+  margin: 0 auto;
+}
+.item:not(:last-child) {
+  margin-bottom: 12px;
+}
+@media screen and (min-width: 480px) {
+  .item {
+    font-size: 1em;
+  }
+}
+
+.btn {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  color: #212121;
+  background-color: #c2ccd1;
+  font-size: 1em;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #0984b9;
+  color: white;
+  transition: all 0.2s;
+}
+.notes {
+  margin: 0;
+}

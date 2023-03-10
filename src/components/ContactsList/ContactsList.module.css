@@ -1,0 +1,14 @@
+.list {
+  list-style: none;
+  padding: 0;
+}
+.notes {
+  margin: 0 auto 16px;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
