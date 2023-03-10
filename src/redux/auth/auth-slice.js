@@ -51,7 +51,7 @@ const authSlice = createSlice({
         const { user, token } = action.payload;
         console.log(action.payload);
         store.isLoading = false;
-        store.user = { ...user };
+        store.user = user;
         store.token = token;
         store.isLogged = true;
       })
