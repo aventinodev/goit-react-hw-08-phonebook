@@ -6,7 +6,7 @@ import { selectGetUser } from 'redux/auth/auth-selector';
 import css from './UserMenu.module.css';
 
 const UserMenu = () => {
-  const { name } = useSelector(selectGetUser);
+  const user = useSelector(selectGetUser);
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -16,7 +16,7 @@ const UserMenu = () => {
 
   return (
     <div className={css.wrapper}>
-      <p className={css.text}>Wellcome, {name}</p>
+      <p className={css.text}>Wellcome, {user.name}</p>
       <button className={css.btn} type="button" onClick={onLogout}>
         Logout
       </button>
