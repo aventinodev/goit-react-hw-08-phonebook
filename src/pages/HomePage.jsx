@@ -5,18 +5,10 @@ import { RiContactsBookLine } from 'react-icons/ri';
 
 import { iconSize } from 'services/utils/iconSize';
 
-import { logIn } from 'redux/auth/auth-operations';
-
 import Section from 'components/Section/Section';
 import Title from 'components/Title/Title';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-
-  const onLogin = () => {
-    dispatch(logIn());
-  };
-
   return (
     <main>
       <Section>
