@@ -6,7 +6,7 @@ import Button from 'components/Button/Button';
 import css from './LoginForm.module.css';
 
 const LoginForm = ({ onSubmit }) => {
-  const { state, setState, handleChange, handleSubmit } = useForm({
+  const { state, handleChange, handleSubmit } = useForm({
     initialState,
     onSubmit,
   });
