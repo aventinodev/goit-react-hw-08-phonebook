@@ -57,7 +57,7 @@ const authSlice = createSlice({
       })
       .addCase(currentUser.rejected, (store, action) => {
         store.isLoading = false;
-        // store.token = '';
+        store.token = '';
         store.error = action.payload;
       })
       .addCase(logOut.pending, store => {
