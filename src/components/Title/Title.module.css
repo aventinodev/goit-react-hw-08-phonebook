@@ -1,0 +1,17 @@
+.title {
+  margin: 0 auto 32px;
+  text-align: center;
+  animation-name: transform;
+  animation-duration: 250ms;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes transform {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
