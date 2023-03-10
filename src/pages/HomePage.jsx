@@ -1,12 +1,22 @@
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
 import { RiContactsBookLine } from 'react-icons/ri';
 
 import { iconSize } from 'services/utils/iconSize';
 
+import { logIn } from 'redux/auth/auth-operations';
+
 import Section from 'components/Section/Section';
 import Title from 'components/Title/Title';
-import Button from 'components/Button/Button';
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+
+  const onLogin = () => {
+    dispatch(logIn());
+  };
+
   return (
     <main>
       <Section>
@@ -22,7 +32,9 @@ const HomePage = () => {
             }}
           />
           <Title>Phonebook</Title>
-          <Button>Try it now</Button>
+          <NavLink to="/login" className="btn">
+            Try it now
+          </NavLink>
         </div>
       </Section>
     </main>
