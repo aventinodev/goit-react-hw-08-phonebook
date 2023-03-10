@@ -4,12 +4,10 @@ const instance = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 
-// Utility to add JWT
+// Utility to add or remove JWT
 const setToken = token => {
   if (token) {
-    return (instance.defaults.headers.common[
-      'Authorization'
-    ] = `Bearer ${token}`);
+    return (instance.defaults.headers.Authorization = `Bearer ${token}`);
   }
   instance.defaults.headers.common['Authorization'] = '';
 };
@@ -33,9 +31,10 @@ export const currentUser = async token => {
   try {
     setToken(token);
     const { data } = await instance.get('/users/current');
+    console.log(data);
     return data;
   } catch (error) {
-    setToken();
+    // setToken();
     throw error;
   }
 };
