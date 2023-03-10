@@ -1,0 +1,36 @@
+div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 16px;
+  width: 100%;
+}
+@media screen and (min-width: 480px) {
+  div {
+    max-width: 480px;
+    padding: 32px;
+  }
+}
+
+h2 {
+  font-size: 2em;
+  font-weiht: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+button {
+  width: 300px;
+  padding: 4px 8px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  color: #212121;
+  background-color: grey;
+  font-size: 1em;
+}
+button:hover,
+button:focus {
+  background-color: #0984b9;
+  color: white;
+  transition: all 0.2s;
+}
