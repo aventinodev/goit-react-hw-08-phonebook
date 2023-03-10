@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+
+  align-items: baseline;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .wrapper {
+    margin: 0 0 0 auto;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 0 auto;
+    padding: 8px 0;
+  }
+  .text {
+    margin-right: 1em;
+    color: #212121;
+  }
+}
+
+.text {
+  margin-right: 16px;
+  color: #212121;
+}
+.btn {
+  padding: 4px 8px;
+
+  border: none;
+  border-radius: 4px;
+  color: #212121;
+  background-color: #c2ccd1;
+  font-size: 1em;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #0984b9;
+  color: white;
+  transition: all 0.2s;
+}
