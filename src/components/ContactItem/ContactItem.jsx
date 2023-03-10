@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchDeleteContact } from 'redux/contacts/contacts-operations';
 import { selectIsLoading } from 'redux/contacts/contacts-selectors';
 import ClipLoader from 'react-spinners/ClipLoader';
-import Button from 'components/Button/Button';
+
 import css from './ContactItem.module.css';
 
 const ContactItem = ({ id, name, number }) => {
@@ -23,9 +23,6 @@ const ContactItem = ({ id, name, number }) => {
         {name}: {number}
       </p>
 
-      {/* <Button type="button" onClick={onDeleteContact}>
-        {isLoading ? <Loader /> : 'Delete'}
-      </Button> */}
       <button className={css.btn} type="button" onClick={onDeleteContact}>
         {isLoading ? (
           <ClipLoader
