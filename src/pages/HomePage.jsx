@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { RiContactsBookLine } from 'react-icons/ri';
