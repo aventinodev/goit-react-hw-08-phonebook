@@ -52,8 +52,6 @@ const App = () => {
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
-
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Route>
     </Routes>
   );
