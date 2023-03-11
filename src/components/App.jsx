@@ -12,24 +12,20 @@ import PrivateRoute from './RestrictedRoute';
 import { Loader } from 'components/Loader/Loader';
 import '../index.css';
 
-// import AppBar from './AppBar/AppBar';
-// import AppFooter from './AppFooter/AppFooter';
-
 const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
-const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isCurrent } = useAuth();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isCurrent ? (
+  return isRefreshing ? (
     <Loader />
   ) : (
     <Routes>
@@ -56,7 +52,8 @@ const App = () => {
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
-        <Route path="*" element={<NotFoundPage />} />
+
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Route>
     </Routes>
   );
