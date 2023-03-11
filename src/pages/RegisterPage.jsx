@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { signUp } from 'redux/auth/auth-operations';
+import { register } from 'redux/auth/auth-operations';
 
 import Section from 'components/Section/Section';
 import Title from 'components/Title/Title';
@@ -9,7 +9,7 @@ import RegisterForm from 'components/RegisterForm/RegisterForm';
 const RegisterPage = () => {
   const dispatch = useDispatch();
   const handleSignUp = data => {
-    dispatch(signUp(data));
+    dispatch(register(data));
   };
 
   return (
