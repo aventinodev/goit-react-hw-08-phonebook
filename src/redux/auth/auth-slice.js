@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signUp, logIn, refreshUser, logOut } from './auth-operations';
+import { register, logIn, logOut, refreshUser } from './auth-operations';
 const initialState = {
   user: { name: null, email: null },
   token: null,
-  isLogged: false,
-  isLoading: false,
+  isLoggedIn: false,
   isRefreshing: false,
   error: null,
+  // isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -14,68 +14,65 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      // .addCase(signUp.pending, store => {
-      //   store.isLoading = true;
+      // .addCase(register.pending, state => {
+      //   state.isLoading = true;
       //   store.error = null;
       // })
-      .addCase(signUp.fulfilled, (store, action) => {
-        const { user, token } = action.payload;
-        store.isLoading = false;
-        store.user = user;
-        store.token = token;
-        store.isLogged = true;
+      .addCase(register.fulfilled, (state, action) => {
+        // state.isLoading = false;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
       })
-      // .addCase(signUp.rejected, (store, action) => {
-      //   store.isLoading = false;
-      //   store.error = action.payload;
+      // .addCase(register.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
       // })
-      // .addCase(logIn.pending, store => {
-      //   store.isLoading = true;
-      //   store.error = null;
+      // .addCase(logIn.pending, state => {
+      //   state.isLoading = true;
+      //   state.error = null;
       // })
-      .addCase(logIn.fulfilled, (store, action) => {
-        const { user, token } = action.payload;
-        store.isLoading = false;
-        store.user = user;
-        store.token = token;
-        store.isLogged = true;
+      .addCase(logIn.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        // state.isLoading = false;
       })
-      // .addCase(logIn.rejected, (store, action) => {
-      //   store.isLoading = false;
-      //   store.error = action.payload;
+      // .addCase(logIn.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
       // })
-      // .addCase(logOut.pending, store => {
-      //   store.isLoading = true;
-      //   store.error = null;
+      // .addCase(logOut.pending, state => {
+      //   state.isLoading = true;
+      //   state.error = null;
       // })
-      .addCase(logOut.fulfilled, store => {
-        store.isLoading = false;
-        store.user = { name: null, email: null };
-        store.token = null;
-        store.isLogged = false;
+      .addCase(logOut.fulfilled, state => {
+        state.user = { name: null, email: null };
+        state.token = null;
+        state.isLoggedIn = false;
+        // state.isLoading = false;
       })
-      // .addCase(logOut.rejected, (store, action) => {
-      //   store.isLoading = false;
-      //   store.error = action.payload;
+      // .addCase(logOut.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
       // });
-      .addCase(refreshUser.pending, store => {
-        // store.isLoading = true;
-        // store.error = null;
-        store.isRefreshing = true;
+      .addCase(refreshUser.pending, state => {
+        // state.isLoading = true;
+        // state.error = null;
+        state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (store, action) => {
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload;
         console.log(action.payload);
-        store.isLoading = false;
-        store.user = action.payload;
-        store.token = action.payload.token;
-        store.isRefreshing = false;
-        store.isLogged = true;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+        // state.isLoading = false;
       })
-      .addCase(refreshUser.rejected, (store, action) => {
-        // store.isLoading = false;
-        // store.token = '';
-        // store.error = action.payload;
-        store.isRefreshing = false;
+      .addCase(refreshUser.rejected, state => {
+        // state.isLoading = false;
+        // state.token = '';
+        // state.error = action.payload;
+        state.isRefreshing = false;
       });
   },
 });
