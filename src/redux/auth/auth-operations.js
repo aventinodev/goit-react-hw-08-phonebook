@@ -6,16 +6,16 @@ export const instance = axios.create({
 });
 // Utility to add JWT
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 // Utility to remove JWT
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = '';
+  instance.defaults.headers.common.Authorization = '';
 };
 
-export const signUp = createAsyncThunk(
-  'auth/signup',
+export const register = createAsyncThunk(
+  'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
       const res = await instance.post('/users/signup', credentials);
@@ -83,8 +83,7 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
       const res = await instance.get('/users/current');
-      console.log(res);
-
+      console.log(res.data);
       return res.data;
     } catch (error) {
       return rejectWithValue(error.message);
