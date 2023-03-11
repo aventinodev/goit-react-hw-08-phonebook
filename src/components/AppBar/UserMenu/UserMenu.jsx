@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { logOut } from 'redux/auth/auth-operations';
 import { selectGetUser } from 'redux/auth/auth-selector';
-// import Button from 'components/Button/Button';
+
 import css from './UserMenu.module.css';
 
 const UserMenu = () => {
