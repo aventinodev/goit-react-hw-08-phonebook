@@ -1,4 +1,5 @@
-import instance from './auth-api';
+// import instance from './auth-api';
+import { instance } from 'redux/auth/auth-operations';
 
 export const getAllContacts = async () => {
   const { data } = await instance.get('/contacts');
