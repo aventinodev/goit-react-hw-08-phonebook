@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { logOut } from 'redux/auth/auth-operations';
-import { selectGetUser } from 'redux/auth/auth-selector';
+import { selectUser } from 'redux/auth/auth-selector';
 
 import css from './UserMenu.module.css';
 
 const UserMenu = () => {
-  const user = useSelector(selectGetUser);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const onLogout = () => {
