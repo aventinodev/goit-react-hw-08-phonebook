@@ -5,7 +5,7 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 
-import { currentUser } from 'redux/auth/auth-operations';
+import { refreshUser } from 'redux/auth/auth-operations';
 import RestrictedRoute from './RestrictedRoute';
 import useAuth from 'hooks/useAuth';
 import PrivateRoute from './RestrictedRoute';
@@ -26,7 +26,7 @@ const App = () => {
   const { isCurrent } = useAuth();
 
   useEffect(() => {
-    dispatch(currentUser());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return isCurrent ? (

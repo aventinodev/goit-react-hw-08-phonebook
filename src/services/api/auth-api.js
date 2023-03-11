@@ -27,7 +27,7 @@ export const logInUser = async data => {
 };
 
 // * GET @ /users/current
-export const currentUser = async token => {
+export const refreshUser = async token => {
   try {
     setToken(token);
     const { data } = await instance.get('/users/current');

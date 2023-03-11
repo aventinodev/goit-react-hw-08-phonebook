@@ -26,7 +26,7 @@ export const logIn = createAsyncThunk(
   }
 );
 
-export const currentUser = createAsyncThunk(
+export const refreshUser = createAsyncThunk(
   'auth/current',
   async (_, { rejectWithValue, getState }) => {
     try {
@@ -36,7 +36,7 @@ export const currentUser = createAsyncThunk(
         console.log('mistake');
         return rejectWithValue();
       }
-      const data = await api.currentUser(auth.token);
+      const data = await api.refreshUser(auth.token);
       console.log(data);
 
       return data;
