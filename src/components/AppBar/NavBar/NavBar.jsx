@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectIsUserLogged } from 'redux/auth/auth-selector';
+import { selectIsLoggedIn } from 'redux/auth/auth-selector';
 import css from './NavBar.module.css';
 
 const NavBar = () => {
-  const isLogin = useSelector(selectIsUserLogged);
+  const isLogin = useSelector(selectIsLoggedIn);
   return (
     <nav className={css.nav}>
       <NavLink className={css.link} to="/">
