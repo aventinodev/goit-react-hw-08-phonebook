@@ -13,7 +13,6 @@ const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   const onDeleteContact = () => {
-    console.log(id);
     dispatch(fetchDeleteContact(id));
   };
 
