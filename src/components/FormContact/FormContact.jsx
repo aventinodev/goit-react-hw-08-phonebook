@@ -32,7 +32,7 @@ const FormContact = () => {
     });
     return Boolean(result);
   };
-  const onAddContact = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (isDublicate(name, number)) {
       alert('Contact with such name or number is already  exist');
@@ -50,7 +50,7 @@ const FormContact = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={onAddContact}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <label className={css.label}>
         Name
         <input
