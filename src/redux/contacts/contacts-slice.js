@@ -39,7 +39,7 @@ const contactsSlice = createSlice({
         store.error = action.payload;
       })
       .addCase(fetchDeleteContact.pending, store => {
-        store.isLoading = true;
+        // store.isLoading = true;
       })
       .addCase(fetchDeleteContact.fulfilled, (store, action) => {
         store.isLoading = false;
