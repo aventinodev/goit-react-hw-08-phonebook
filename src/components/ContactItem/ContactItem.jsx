@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDeleteContact } from 'redux/contacts/contacts-operations';
-import { selectIsLoading } from 'redux/contacts/contacts-selectors';
+
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import css from './ContactItem.module.css';
 
 const ContactItem = ({ id, name, number }) => {
-  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
   const onDeleteContact = () => {
@@ -23,7 +22,8 @@ const ContactItem = ({ id, name, number }) => {
       </p>
 
       <button className={css.btn} type="button" onClick={onDeleteContact}>
-        {isLoading ? (
+        Delete
+        {/* {
           <ClipLoader
             display="block"
             margin="0 auto"
@@ -32,9 +32,7 @@ const ContactItem = ({ id, name, number }) => {
             aria-label="Loading Spinner"
             data-testid="loader"
           />
-        ) : (
-          'Delete'
-        )}
+        } */}
       </button>
     </li>
   );
