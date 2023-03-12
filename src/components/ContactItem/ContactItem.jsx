@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchDeleteContact } from 'redux/contacts/contacts-operations';
-
-import ClipLoader from 'react-spinners/ClipLoader';
 
 import css from './ContactItem.module.css';
 
@@ -23,16 +21,6 @@ const ContactItem = ({ id, name, number }) => {
 
       <button className={css.btn} type="button" onClick={onDeleteContact}>
         Delete
-        {/* {
-          <ClipLoader
-            display="block"
-            margin="0 auto"
-            color="#ffffff"
-            size={16}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-        } */}
       </button>
     </li>
   );
