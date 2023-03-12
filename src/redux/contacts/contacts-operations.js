@@ -22,28 +22,13 @@ export const fetchAddContact = createAsyncThunk(
     try {
       const result = await api.addContact(data);
       toast.success('Сontact added successfully');
+
       return result;
     } catch ({ response }) {
       toast.error('Sorry,something is wrong');
       return thunkAPI.rejectWithValue(response.data);
     }
   }
-  // {
-  //   condition: (data, { getState }) => {
-  //     const { contacts } = getState();
-  //     const normalizedName = data.name.toLowerCase();
-  //     const result = contacts.items.find(contact => {
-  //       return (
-  //         contact.name.toLowerCase() === normalizedName ||
-  //         contact.phone === data.phone
-  //       );
-  //     });
-  //     if (result) {
-  //       alert('Such name or number is aledy exist');
-  //       return false;
-  //     }
-  //   },
-  // }
 );
 
 export const fetchDeleteContact = createAsyncThunk(
@@ -52,6 +37,7 @@ export const fetchDeleteContact = createAsyncThunk(
     try {
       await api.deleteContact(id);
       toast.success('Сontact deleted successfully');
+
       return id;
     } catch ({ response }) {
       toast.error('Sorry,something is wrong');
