@@ -8,7 +8,7 @@ import { Layout } from './Layout';
 import { refreshUser } from 'redux/auth/auth-operations';
 import RestrictedRoute from './RestrictedRoute';
 import useAuth from 'hooks/useAuth';
-import PrivateRoute from './RestrictedRoute';
+import PrivateRoute from './PrivateRoute';
 import { Loader } from 'components/Loader/Loader';
 import '../index.css';
 
