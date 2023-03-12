@@ -17,7 +17,7 @@ const useForm = ({ initialState, onSubmit }) => {
     e.preventDefault();
     onSubmit({ ...state });
 
-    setState({ ...initialState });
+    // setState({ ...initialState });
   };
 
   return { state, setState, handleChange, handleSubmit };
