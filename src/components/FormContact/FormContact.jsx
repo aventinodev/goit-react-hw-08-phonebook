@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
-import { fetchAddContact } from 'redux/contacts/contacts-operations';
+import { addContact } from 'redux/contacts/contacts-operations';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFilteredContacts,
-  selectIsLoading,
+  selectOperation,
 } from 'redux/contacts/contacts-selectors';
 
-import ClipLoader from 'react-spinners/ClipLoader';
+import { Loader } from 'components/Loader/Loader';
 import css from './FormContact.module.css';
 
 const FormContact = () => {
@@ -19,7 +19,8 @@ const FormContact = () => {
   const { name, number } = state;
 
   const contacts = useSelector(selectFilteredContacts);
-  const isLoading = useSelector(selectIsLoading);
+
+  const operation = useSelector(selectOperation);
   const dispatch = useDispatch();
 
   const isDublicate = (name, number) => {
@@ -38,7 +39,7 @@ const FormContact = () => {
       alert('Contact with such name or number is already  exist');
       return false;
     }
-    dispatch(fetchAddContact({ name, number }));
+    dispatch(addContact({ name, number }));
     setState({ ...initialState });
   };
 
@@ -78,15 +79,8 @@ const FormContact = () => {
         />
       </label>
       <button className={css.btn} type="submit">
-        {isLoading ? (
-          <ClipLoader
-            display="block"
-            margin="0 auto"
-            color="#ffffff"
-            size={16}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
+        {operation === 'add' ? (
+          <Loader size={16} color={'#ffffff'} />
         ) : (
           'Add contact'
         )}
