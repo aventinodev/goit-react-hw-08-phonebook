@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './auth-operations';
+
 const initialState = {
   user: { name: null, email: null },
   token: null,
@@ -12,11 +13,13 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+
   extraReducers: builder => {
     builder
       .addCase(register.pending, state => {
         state.isLoading = true;
         state.error = null;
+        state.operation = 'fetch';
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
