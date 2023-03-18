@@ -9,6 +9,7 @@ import css from './AppBar.module.css';
 
 const AppBar = () => {
   const isLogIn = useSelector(selectIsLoggedIn);
+
   return (
     <header className={css.header}>
       <div className="container">
