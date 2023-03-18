@@ -12,7 +12,7 @@ const NotFoundPage = () => {
           <Link className="link" to="/">
             <span>
               <BsArrowLeftShort
-                size={iconSize.sm}
+                size={iconSize.md}
                 style={{
                   fill: 'inherit',
                 }}
