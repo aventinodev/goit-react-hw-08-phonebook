@@ -1,9 +1,17 @@
 import ClipLoader from 'react-spinners/ClipLoader';
 
-export const Loader = ({ size = 40, color = '#0984b9' }) => {
+export const Loader = ({
+  size = 40,
+  color = '#0984b9',
+  marginTop = '30px',
+}) => {
   return (
     <div
-      style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: marginTop,
+      }}
     >
       <ClipLoader
         display="block"

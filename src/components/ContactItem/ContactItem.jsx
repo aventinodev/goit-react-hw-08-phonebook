@@ -23,7 +23,11 @@ const ContactItem = ({ id, name, number }) => {
       </p>
 
       <button className={css.btn} type="button" onClick={onDeleteContact}>
-        {operation === id ? <Loader size={16} color={'#ffffff'} /> : 'Delete'}
+        {operation === id ? (
+          <Loader size={16} color={'#ffffff'} marginTop={0} />
+        ) : (
+          'Delete'
+        )}
       </button>
     </li>
   );

@@ -80,7 +80,7 @@ const FormContact = () => {
       </label>
       <button className={css.btn} type="submit">
         {operation === 'add' ? (
-          <Loader size={16} color={'#ffffff'} />
+          <Loader size={16} color={'#ffffff'} marginTop={0} />
         ) : (
           'Add contact'
         )}
