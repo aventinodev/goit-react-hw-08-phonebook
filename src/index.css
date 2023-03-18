@@ -107,3 +107,9 @@ image {
   color: white;
   transition: all 0.2s;
 }
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
