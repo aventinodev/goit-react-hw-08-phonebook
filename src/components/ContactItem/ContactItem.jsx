@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useDispatch } from 'react-redux';
-import { fetchDeleteContact } from 'redux/contacts/contacts-operations';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from 'redux/contacts/contacts-operations';
+import { selectOperation } from 'redux/contacts/contacts-selectors';
+import { Loader } from 'components/Loader/Loader';
+// import { ClipLoader } from 'react-spinners';
 import css from './ContactItem.module.css';
 
 const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
+  const operation = useSelector(selectOperation);
 
   const onDeleteContact = () => {
-    dispatch(fetchDeleteContact(id));
+    dispatch(deleteContact(id));
   };
 
   return (
@@ -20,7 +23,7 @@ const ContactItem = ({ id, name, number }) => {
       </p>
 
       <button className={css.btn} type="button" onClick={onDeleteContact}>
-        Delete
+        {operation === id ? <Loader size={16} color={'#ffffff'} /> : 'Delete'}
       </button>
     </li>
   );
